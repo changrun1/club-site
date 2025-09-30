@@ -1,17 +1,20 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: changrun1/club-site
   branch: master
+  auth_type: pkce # 使用 PKCE 授權流程
 
 media_folder: "public/images"
-public_folder: "/images"
+public_folder: "/club-site/images"
 
 locale: "zh_Hant"
 
-# 允許編輯工作流程
-publish_mode: editorial_workflow
-
 # 本地開發
 local_backend: true
+
+# GitHub Pages 基礎路徑
+site_url: "https://changrun1.github.io/club-site"
+display_url: "https://changrun1.github.io/club-site"
 
 collections:
   - name: "settings"

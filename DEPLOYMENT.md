@@ -1,51 +1,69 @@
 # 程式設計社網站部署指南
 
-## 🚀 Netlify 部署步驟
+## 🚀 GitHub Pages 部署步驟
 
-### 1. 部署到 Netlify
+### 1. 啟用 GitHub Pages
+1. 前往 GitHub 倉庫 `https://github.com/changrun1/club-site`
+2. 點擊 **Settings** 標籤
+3. 在左側選單中找到 **Pages**
+4. 在 **Source** 中選擇 **GitHub Actions**
+5. 推送程式碼後，GitHub Actions 會自動建置和部署
+
+### 2. 網站地址
+部署完成後，網站地址為：
+```
+https://changrun1.github.io/club-site/
+```
+
+### 3. CMS 後台地址
+CMS 後台地址為：
+```
+https://changrun1.github.io/club-site/admin/
+```
+
+## 📝 CMS 設置與使用
+
+### GitHub OAuth App 設置
+1. 前往 GitHub **Settings → Developer settings → OAuth Apps**
+2. 點擊 **New OAuth App**
+3. 填寫資訊：
+   - **Application name**: `Club Site CMS`
+   - **Homepage URL**: `https://changrun1.github.io/club-site/`
+   - **Authorization callback URL**: `https://api.netlify.com/auth/done`
+4. 記錄 **Client ID** 和 **Client Secret**
+
+### 使用 Netlify CMS OAuth
+由於 GitHub Pages 不支援伺服器端功能，建議使用 Netlify 的 OAuth 服務：
+
 1. 前往 [Netlify](https://app.netlify.com)
-2. 點擊 "New site from Git"
-3. 選擇 GitHub 並授權
-4. 選擇 `changrun1/club-site` 倉庫
-5. 設定部署參數：
-   - **Branch**: `master`
-   - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
-6. 點擊 "Deploy site"
+2. 不需要部署，只是設置 OAuth
+3. 前往 **Settings → Access control → OAuth**
+4. 點擊 **Install provider**，選擇 **GitHub**
+5. 輸入之前建立的 OAuth App 資訊
 
-### 2. 設置 Netlify Identity (CMS 認證)
-1. 在 Netlify 專案儀表板中，前往 **Settings → Identity**
-2. 點擊 "Enable Identity"
-3. 在 **Registration preferences** 中選擇 "Invite only"
-4. 在 **Git Gateway** 中點擊 "Enable Git Gateway"
+### CMS 認證流程
+1. 前往 `https://changrun1.github.io/club-site/admin/`
+2. 點擊 **Login with GitHub**
+3. 授權 GitHub 存取
+4. 完成後即可管理內容
 
-### 3. 設置 CMS 管理員
-1. 前往 **Identity → Invite users**
-2. 輸入管理員 email 地址
-3. 管理員會收到邀請信，點擊確認後設置密碼
+## � CMS 功能總覽
 
-### 4. 存取 CMS 後台
-部署完成後，CMS 後台地址為：
-```
-https://[your-site-name].netlify.app/admin/
-```
+### 可管理的內容：
+- ✅ **網站設定** - 基本資訊、聯絡方式、社群媒體
+- ✅ **首頁設定** - 橫幅、關於內容、特色功能
+- ✅ **公告管理** - 社團公告發布與分類
+- ✅ **活動管理** - 活動資訊、報名連結、狀態管理
+- ✅ **專案展示** - 專案作品、GitHub 連結、技術標籤
+- ✅ **成員管理** - 成員資料、職位、聯絡方式
+- ✅ **資源管理** - 學習資源分享
+- ✅ **頁面內容** - 關於我們、加入我們等靜態頁面
 
-## 📝 CMS 功能
-
-### 內容管理
-- **公告管理**: 新增/編輯社團公告
-- **活動管理**: 管理社團活動資訊
-- **專案展示**: 展示社團專案作品
-- **成員管理**: 管理社團成員資料
-- **資源管理**: 學習資源分享
-- **頁面管理**: 關於我們、加入我們等頁面
-- **網站設定**: 基本設定、首頁橫幅、特色功能
-
-### 編輯工作流程
-- 支援草稿模式
-- 內容審核機制
-- 版本控制
-- 即時預覽
+### 編輯流程：
+1. 在 CMS 後台編輯內容
+2. 儲存後會建立 Pull Request
+3. 合併 PR 後，GitHub Actions 自動部署
+4. 更新內容會即時反映在網站上
 
 ## 🛠️ 本地開發
 
@@ -102,4 +120,4 @@ npm run dev
 如有問題請聯絡技術團隊或查看：
 - [Decap CMS 文檔](https://decapcms.org/docs/)
 - [Vue 3 文檔](https://vuejs.org/)
-- [Netlify 文檔](https://docs.netlify.com/)
+- [GitHub Pages 文檔](https://docs.github.com/pages/)
