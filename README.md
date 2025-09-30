@@ -1,53 +1,103 @@
-# 社團網站模板 (Club Website Template)
+# 程式設計社網站
 
-這是一個現代化的社團網站模板，採用 Vue 3 + TypeScript + Vite 技術棧開發，支援 Decap CMS 內容管理系統。
+> 使用 Vue 3 + TypeScript + Vite 構建的現代化學生社團網站，集成 Decap CMS 內容管理系統
 
-## 功能特色
+## 🌟 功能特色
 
-### 🎯 核心功能
-- **響應式設計** - 完美適配桌面、平板、手機
-- **內容管理** - 整合 Decap CMS，無需技術背景即可管理內容
-- **多語言準備** - 預留國際化支援架構
-- **SEO 優化** - 支援 meta 標籤和語義化 HTML
-- **無障礙設計** - 符合 WCAG 2.1 AA 標準
+- **現代化設計**: 使用 Vue 3 + TypeScript + Vite 技術棧
+- **響應式布局**: 支持各種設備尺寸的完美顯示
+- **內容管理**: 集成 Decap CMS，支持可視化內容編輯
+- **GitHub Pages**: 自動部署到 GitHub Pages
+- **多語言支持**: 完整的繁體中文本地化
 
-### 📱 頁面功能
-- **首頁** - 社團介紹、最新消息、活動預告
-- **關於我們** - 社團歷史、願景、組織架構
-- **公告與消息** - 重要通知、活動資訊
-- **活動** - 活動列表、活動詳情、報名資訊
-- **專案** - 社團專案展示、成果分享
-- **成員** - 幹部介紹、成員名單
-- **資源** - 實用連結、下載資源
-- **加入我們** - 入社申請、聯絡方式
+## 🚀 快速開始
 
-### 🎨 設計特色
-- **專業正式** - 適合學術組織和正式社團
-- **色彩系統** - 藍色主調，傳達專業與信任
-- **組件化** - 可重複使用的 UI 組件
-- **設計系統** - 統一的間距、字體、顏色規範
+### 本地開發
 
-## 技術架構
+1. **安裝依賴**
+   ```bash
+   npm install
+   ```
 
-- **前端框架**: Vue 3 + Composition API
-- **開發語言**: TypeScript
-- **建置工具**: Vite
-- **狀態管理**: Pinia
-- **路由**: Vue Router 4
-- **樣式**: SCSS + CSS 變數
-- **內容管理**: Decap CMS
-- **部署**: GitHub Pages + Cloudflare DNS
+2. **啟動開發服務器**
+   ```bash
+   npm run dev
+   ```
 
-## 快速開始
+3. **啟動 CMS 本地後端** (新終端)
+   ```bash
+   npx decap-server
+   ```
 
-### 1. 克隆專案
-```bash
-git clone <your-repo-url>
-cd clubs
-```
+4. **訪問網站**
+   - 主網站: http://localhost:5173
+   - CMS 管理: http://localhost:5173/admin
 
-### 2. 安裝依賴
-```bash
+### 生產部署
+
+網站會自動通過 GitHub Actions 部署到 GitHub Pages:
+- 網站地址: https://changrun1.github.io/club-site/
+- CMS 管理: https://changrun1.github.io/club-site/admin
+
+## 🚨 重要修正
+
+此版本已修正以下問題：
+
+### ✅ 路由問題
+- 添加 `404.html` 處理 GitHub Pages SPA 路由
+- 刷新頁面不再顯示 404 錯誤
+
+### ✅ Footer Overflow 問題  
+- 修正 Footer 樣式防止內容溢出
+- 添加 `overflow-x: hidden` 防止水平滾動
+- 改善響應式設計和文字換行
+
+### ✅ CMS 認證問題
+- 配置 `local_backend: true` 用於本地開發
+- 簡化認證流程，避免複雜的 OAuth 配置
+
+## 📝 內容管理
+
+### CMS 使用方式
+
+**本地開發** (推薦):
+1. 運行 `npx decap-server`
+2. 訪問 http://localhost:5173/admin
+3. 無需登錄，直接編輯內容
+
+**生產環境**:
+- 訪問線上 CMS 需要 GitHub 認證
+- 如遇認證問題，請使用本地開發模式
+
+### 內容類型
+
+- **活動管理**: 社團活動資訊
+- **專案展示**: 技術專案展示
+- **成員管理**: 社團成員資料
+- **網站設定**: 基本資訊和社群連結
+- **最新公告**: 重要公告通知
+
+## 🛠️ 技術架構
+
+- **Vue 3**: 前端框架
+- **TypeScript**: 類型安全
+- **Vite**: 構建工具
+- **Decap CMS**: 內容管理
+- **GitHub Pages**: 靜態部署
+- **SCSS**: 樣式預處理
+
+## 📞 支持
+
+如遇問題：
+1. 查看本 README 文檔
+2. 檢查 [Issues](https://github.com/changrun1/club-site/issues)
+3. 創建新 Issue 描述問題
+
+---
+
+**快速連結**:
+- 🌐 [網站首頁](https://changrun1.github.io/club-site/)
+- ⚙️ [CMS 管理](https://changrun1.github.io/club-site/admin)
 npm install
 ```
 
