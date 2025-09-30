@@ -1,8 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: changrun1/club-site
   branch: master
   
-# 本地開發後端 (避免複雜的 OAuth 配置)
+# 本地開發後端 (推薦用於內容編輯)
 local_backend: true
 
 media_folder: "public/images"
