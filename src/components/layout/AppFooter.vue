@@ -139,6 +139,8 @@ const getSocialIcon = (platform: string) => {
   padding: var(--space-8) 0 var(--space-4);
   margin-top: auto;
   min-height: auto;
+  overflow-x: hidden; // 防止水平滾動
+  width: 100%;
 }
 
 .footer {
@@ -146,6 +148,8 @@ const getSocialIcon = (platform: string) => {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
+    word-wrap: break-word; // 防止長文字溢出
+    overflow-wrap: break-word;
 
     @include media(sm) {
       grid-template-columns: repeat(2, 1fr);
@@ -157,6 +161,8 @@ const getSocialIcon = (platform: string) => {
   }
 
   &__section {
+    min-width: 0; // 防止 flex/grid 子項目溢出
+    
     &:first-child {
       @include media(lg) {
         padding-right: var(--space-6);
@@ -169,6 +175,7 @@ const getSocialIcon = (platform: string) => {
     font-weight: var(--font-bold);
     color: var(--color-text-white);
     margin-bottom: var(--space-3);
+    word-wrap: break-word;
   }
 
   &__subtitle {
@@ -176,17 +183,21 @@ const getSocialIcon = (platform: string) => {
     font-weight: var(--font-semibold);
     color: var(--color-text-white);
     margin-bottom: var(--space-4);
+    word-wrap: break-word;
   }
 
   &__description {
     color: var(--color-gray-300);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-4);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   &__social {
     display: flex;
     gap: var(--space-3);
+    flex-wrap: wrap; // 允許換行
   }
 
   &__social-link {
@@ -201,6 +212,7 @@ const getSocialIcon = (platform: string) => {
     text-decoration: none;
     transition: all 0.2s ease;
     font-size: var(--text-lg);
+    flex-shrink: 0; // 防止收縮
 
     &:hover {
       background-color: var(--color-primary);
@@ -226,6 +238,7 @@ const getSocialIcon = (platform: string) => {
       color: var(--color-gray-300);
       text-decoration: none;
       transition: color 0.2s ease;
+      word-wrap: break-word;
 
       &:hover {
         color: var(--color-primary-light);
@@ -239,11 +252,17 @@ const getSocialIcon = (platform: string) => {
     gap: var(--space-2);
     margin-bottom: var(--space-3);
     color: var(--color-gray-300);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0; // 允許文字換行
 
     a {
       color: var(--color-gray-300);
       text-decoration: none;
       transition: color 0.2s ease;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      min-width: 0;
 
       &:hover {
         color: var(--color-primary-light);
@@ -265,6 +284,8 @@ const getSocialIcon = (platform: string) => {
     padding-top: var(--space-4);
     border-top: 1px solid var(--color-gray-700);
     gap: var(--space-3);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 
     @include media(md) {
       flex-direction: row;
@@ -277,12 +298,24 @@ const getSocialIcon = (platform: string) => {
       color: var(--color-gray-400);
       font-size: var(--text-sm);
       margin: 0;
+      word-wrap: break-word;
+      text-align: center;
+
+      @include media(md) {
+        text-align: left;
+      }
     }
   }
 
   &__meta {
     color: var(--color-gray-400);
     font-size: var(--text-sm);
+    word-wrap: break-word;
+    text-align: center;
+
+    @include media(md) {
+      text-align: right;
+    }
   }
 }
 </style>

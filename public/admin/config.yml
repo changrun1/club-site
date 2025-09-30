@@ -1,20 +1,16 @@
 backend:
-  name: github
-  repo: changrun1/club-site
+  name: git-gateway
   branch: master
-  auth_type: implicit
-  base_url: https://decapcms-oauth.netlify.app
-  auth_endpoint: /auth/github
+  
+# 本地開發後端 (避免複雜的 OAuth 配置)
+local_backend: true
 
 media_folder: "public/images"
 public_folder: "/club-site/images"
 
 locale: "zh_Hant"
 
-# 本地開發
-local_backend: true
-
-# GitHub Pages 基礎路徑
+# GitHub Pages 基礎路徑  
 site_url: "https://changrun1.github.io/club-site"
 display_url: "https://changrun1.github.io/club-site"
 

@@ -41,6 +41,8 @@ onMounted(() => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; // 防止水平滾動
+  max-width: 100vw; // 限制最大寬度
 }
 
 // 現代化頁面轉場動畫
