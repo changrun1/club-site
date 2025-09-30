@@ -1,11 +1,17 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: master
 
 media_folder: "public/images"
 public_folder: "/images"
 
 locale: "zh_Hant"
+
+# 允許編輯工作流程
+publish_mode: editorial_workflow
+
+# 本地開發
+local_backend: true
 
 collections:
   - name: "settings"
