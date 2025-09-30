@@ -1,0 +1,10 @@
+items:
+  - title: "學習資源"
+    description: "豐富的學習教材和實作專案，從基礎到進階都有涵蓋"
+    icon: "book"
+  - title: "技術交流"
+    description: "定期的技術分享會和討論，與同伴一起成長學習"
+    icon: "users"
+  - title: "實務專案"
+    description: "參與真實專案開發，累積寶貴的實務經驗"
+    icon: "code"

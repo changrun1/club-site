@@ -1,0 +1,164 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "zh_Hant"
+
+collections:
+  - name: "settings"
+    label: "網站設定"
+    files:
+      - file: "content/settings/site.yml"
+        label: "基本設定"
+        name: "site"
+        fields:
+          - { label: "社團名稱", name: "title", widget: "string" }
+          - { label: "網站標語", name: "tagline", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image", required: false }
+          - { label: "聯絡信箱", name: "email", widget: "string" }
+          - { label: "聯絡電話", name: "phone", widget: "string", required: false }
+          - { label: "地址", name: "address", widget: "text", required: false }
+          - label: "社群媒體"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "YouTube", name: "youtube", widget: "string", required: false }
+              - { label: "GitHub", name: "github", widget: "string", required: false }
+
+      - file: "content/settings/hero.yml"
+        label: "首頁橫幅"
+        name: "hero"
+        fields:
+          - { label: "主標題", name: "title", widget: "string" }
+          - { label: "副標題", name: "subtitle", widget: "text" }
+          - { label: "背景圖片", name: "background", widget: "image", required: false }
+          - { label: "按鈕文字", name: "buttonText", widget: "string" }
+          - { label: "按鈕連結", name: "buttonUrl", widget: "string" }
+
+      - file: "content/settings/about.yml"
+        label: "關於我們"
+        name: "about"
+        fields:
+          - { label: "標題", name: "title", widget: "string" }
+          - { label: "內容", name: "content", widget: "markdown" }
+          - label: "統計數據"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "數字", name: "number", widget: "string" }
+              - { label: "標籤", name: "label", widget: "string" }
+
+      - file: "content/settings/features.yml"
+        label: "特色功能"
+        name: "features"
+        fields:
+          - label: "功能列表"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "標題", name: "title", widget: "string" }
+              - { label: "描述", name: "description", widget: "text" }
+              - { label: "圖標", name: "icon", widget: "string", required: false }
+
+  - name: "announcements"
+    label: "公告"
+    folder: "content/announcements"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "發布日期", name: "date", widget: "datetime" }
+      - { label: "是否為重要公告", name: "featured", widget: "boolean", default: false }
+      - { label: "分類", name: "category", widget: "select", options: ["招生資訊", "活動通知", "競賽活動", "學習資源", "社團公告", "其他"], default: "社團公告" }
+      - { label: "摘要", name: "excerpt", widget: "text", required: false }
+      - { label: "標籤", name: "tags", widget: "list", required: false }
+      - { label: "內容", name: "body", widget: "markdown" }
+      - { label: "發布狀態", name: "published", widget: "boolean", default: true }
+
+  - name: "events"
+    label: "活動"
+    folder: "content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "活動名稱", name: "title", widget: "string" }
+      - { label: "活動日期", name: "date", widget: "datetime" }
+      - { label: "活動結束日期", name: "endDate", widget: "datetime", required: false }
+      - { label: "地點", name: "location", widget: "string" }
+      - { label: "活動圖片", name: "image", widget: "image", required: false }
+      - { label: "報名連結", name: "registerUrl", widget: "string", required: false }
+      - { label: "標籤", name: "tags", widget: "list", required: false }
+      - { label: "活動描述", name: "body", widget: "markdown" }
+      - { label: "狀態", name: "status", widget: "select", options: ["即將舉行", "進行中", "已結束"], default: "即將舉行" }
+      - { label: "發布狀態", name: "published", widget: "boolean", default: true }
+
+  - name: "projects"
+    label: "專案"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "專案名稱", name: "title", widget: "string" }
+      - { label: "建立日期", name: "date", widget: "datetime" }
+      - { label: "專案圖片", name: "image", widget: "image", required: false }
+      - { label: "專案連結", name: "url", widget: "string", required: false }
+      - { label: "GitHub 連結", name: "github", widget: "string", required: false }
+      - { label: "標籤", name: "tags", widget: "list", required: false }
+      - { label: "專案描述", name: "body", widget: "markdown" }
+      - { label: "完成狀態", name: "status", widget: "select", options: ["進行中", "已完成", "暫停"], default: "進行中" }
+      - { label: "發布狀態", name: "published", widget: "boolean", default: true }
+
+  - name: "members"
+    label: "成員"
+    folder: "content/members"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "姓名", name: "name", widget: "string" }
+      - { label: "職位", name: "position", widget: "string" }
+      - { label: "頭像", name: "avatar", widget: "image", required: false }
+      - { label: "簡介", name: "bio", widget: "text", required: false }
+      - { label: "聯絡方式", name: "contact", widget: "string", required: false }
+      - { label: "成員類型", name: "type", widget: "select", options: ["現任幹部", "指導老師", "榮譽會員"], default: "現任幹部" }
+      - { label: "加入日期", name: "joinDate", widget: "datetime" }
+      - { label: "顯示順序", name: "order", widget: "number", default: 0 }
+      - { label: "顯示狀態", name: "active", widget: "boolean", default: true }
+
+  - name: "resources"
+    label: "資源"
+    folder: "content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "資源名稱", name: "title", widget: "string" }
+      - { label: "建立日期", name: "date", widget: "datetime" }
+      - { label: "資源類型", name: "type", widget: "select", options: ["文件", "影片", "連結", "軟體"], default: "文件" }
+      - { label: "檔案", name: "file", widget: "file", required: false }
+      - { label: "連結", name: "url", widget: "string", required: false }
+      - { label: "標籤", name: "tags", widget: "list", required: false }
+      - { label: "資源描述", name: "body", widget: "markdown" }
+      - { label: "發布狀態", name: "published", widget: "boolean", default: true }
+
+  - name: "pages"
+    label: "頁面"
+    files:
+      - file: "content/pages/about.md"
+        label: "關於我們"
+        name: "about"
+        fields:
+          - { label: "標題", name: "title", widget: "string" }
+          - { label: "更新日期", name: "date", widget: "datetime" }
+          - { label: "內容", name: "body", widget: "markdown" }
+
+      - file: "content/pages/join.md"
+        label: "加入我們"
+        name: "join"
+        fields:
+          - { label: "標題", name: "title", widget: "string" }
+          - { label: "更新日期", name: "date", widget: "datetime" }
+          - { label: "內容", name: "body", widget: "markdown" }
