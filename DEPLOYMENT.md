@@ -40,23 +40,36 @@ https://changrun1.github.io/club-site/admin/
 
 ## 📝 CMS 設置與使用
 
-### GitHub OAuth App 設置
-1. 前往 GitHub **Settings → Developer settings → OAuth Apps**
-2. 點擊 **New OAuth App**
+### 🔐 簡單認證設置（推薦）
+
+使用 Decap CMS 官方認證服務，只需要設置 GitHub OAuth App：
+
+#### 步驟 1: 建立 GitHub OAuth App
+1. 前往 `https://github.com/settings/developers`
+2. 點擊 **OAuth Apps → New OAuth App**
 3. 填寫資訊：
    - **Application name**: `Club Site CMS`
    - **Homepage URL**: `https://changrun1.github.io/club-site/`
-   - **Authorization callback URL**: `https://api.netlify.com/auth/done`
-4. 記錄 **Client ID** 和 **Client Secret**
+   - **Authorization callback URL**: `https://decapcms-oauth.netlify.app/callback`
+4. 建立後記錄 **Client ID**
 
-### 使用 Netlify CMS OAuth
-由於 GitHub Pages 不支援伺服器端功能，建議使用 Netlify 的 OAuth 服務：
+#### 步驟 2: 更新環境變數
+由於我們使用 Decap CMS 的認證服務，不需要額外設置。
 
-1. 前往 [Netlify](https://app.netlify.com)
-2. 不需要部署，只是設置 OAuth
-3. 前往 **Settings → Access control → OAuth**
-4. 點擊 **Install provider**，選擇 **GitHub**
-5. 輸入之前建立的 OAuth App 資訊
+#### 步驟 3: 存取 CMS
+1. 前往 `https://changrun1.github.io/club-site/admin/`
+2. 點擊 **Login with GitHub**
+3. 輸入你的 GitHub Client ID（第一次會要求）
+4. 授權後即可管理內容
+
+### 🛠️ 替代方案：自行架設認證
+
+如果你想要更多控制權，可以：
+1. 使用 Netlify Functions
+2. 自己架設 OAuth 服務
+3. 使用其他第三方服務
+
+但對於大多數情況，官方認證服務已經足夠。
 
 ### CMS 認證流程
 1. 前往 `https://changrun1.github.io/club-site/admin/`

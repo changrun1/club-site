@@ -2,7 +2,9 @@ backend:
   name: github
   repo: changrun1/club-site
   branch: master
-  auth_type: pkce # 使用 PKCE 授權流程
+  auth_type: implicit
+  base_url: https://decapcms-oauth.netlify.app
+  auth_endpoint: /auth/github
 
 media_folder: "public/images"
 public_folder: "/club-site/images"
