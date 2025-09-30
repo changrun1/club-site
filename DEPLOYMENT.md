@@ -2,20 +2,37 @@
 
 ## 🚀 GitHub Pages 部署步驟
 
+### ⚠️ 重要：先啟用 GitHub Pages
+**在推送程式碼之前，必須先手動啟用 GitHub Pages！**
+
 ### 1. 啟用 GitHub Pages
 1. 前往 GitHub 倉庫 `https://github.com/changrun1/club-site`
 2. 點擊 **Settings** 標籤
 3. 在左側選單中找到 **Pages**
 4. 在 **Source** 中選擇 **GitHub Actions**
-5. 推送程式碼後，GitHub Actions 會自動建置和部署
+5. 點擊 **Save**
 
-### 2. 網站地址
+### 2. 自動部署
+啟用 Pages 後，每次推送到 `master` 分支，GitHub Actions 會自動：
+- 安裝依賴
+- 建置網站  
+- 部署到 GitHub Pages
+
+你可以在 **Actions** 標籤中查看部署狀態。
+
+### 3. 故障排除
+如果看到 "Get Pages site failed" 錯誤：
+1. 確認已在 Settings → Pages 中啟用 GitHub Actions
+2. 確認倉庫有 Pages 的寫入權限
+3. 等待幾分鐘後重新觸發 workflow
+
+### 4. 網站地址
 部署完成後，網站地址為：
 ```
 https://changrun1.github.io/club-site/
 ```
 
-### 3. CMS 後台地址
+### 5. CMS 後台地址
 CMS 後台地址為：
 ```
 https://changrun1.github.io/club-site/admin/
